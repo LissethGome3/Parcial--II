@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Parcial ll</title>
 </head>
 <body>
+    <h1 style="color: #0f7;">Convertir celsius a fahrenheit</h1>
+
+    <label>Digite una cantidad</label>
     <input type="text" name="numero" id="numero">
-    <button id="enviar">Enviar</button>
-    <div id="respuesta"></div>
+    <button id="calcular">Calcular</button>
+    <div id="resultado"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(e => {
-            let num = $('#numero')[0],
-                boton = $('#enviar')[0];
+            let num = $('numero')[0],
+                boton = $('calcular')[0];
     
             boton.onclick = e => {
                 servidor(num.value);
@@ -23,7 +26,7 @@
 
             function servidor(cantidad) {
                 $.post("http://localhost:3007", cantidad, response => {
-                    $('#respuesta').text(response);
+                    $('resultado').text(response);
                 });
             }
         })
